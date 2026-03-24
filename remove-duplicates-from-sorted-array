@@ -1,0 +1,19 @@
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int n = nums.length;
+        int a1 = 0,a2 = 1;
+        int c = 0;
+        int a3 = 0;
+        while(a2<n){
+            if(nums[a1]==nums[a2]){
+                a2++;
+            }else{
+                nums[a3++] = nums[a1];
+                a1 = a2;
+                a2++;
+            }
+        }
+         nums[a3++] = nums[a1];
+       return a3;
+    }
+}
