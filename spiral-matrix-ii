@@ -1,0 +1,31 @@
+class Solution {
+    public int[][] generateMatrix(int n) {
+        int[][] mat = new int[n][n];
+        int left = 0,t = 0;
+        int right = mat[0].length-1,bttm = mat.length-1;
+        int j = 1;
+        while(left<=right && t<=bttm){
+            for(int i=left;i<=right;i++){
+                mat[t][i] = j++;
+            }
+            t++;
+            for(int i=t;i<=bttm;i++){
+                mat[i][right] = j++;
+            }
+            right--;
+            if(t<=bttm){
+                for(int i=right;i>=left;i--){
+                    mat[bttm][i] = j++;
+                }
+                bttm--;
+            }
+            if(left<=right){
+                for(int i=bttm;i>=t;i--){
+                    mat[i][left] = j++;
+                }
+                left++;
+            }
+        }
+        return mat;
+    }
+}
