@@ -1,0 +1,24 @@
+import java.util.*;
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        int[] ans = new int[2];
+        Arrays.fill(ans,-1);
+        int n = nums.length;
+        int a1 = 0,a2 = n-1;
+         while(a1<n){
+            if(nums[a1]==target){
+                ans[0] = a1;
+                break;
+            }
+            a1++;
+         }
+         while(a2>=0){
+            if(nums[a2]==target){
+                ans[1] = a2;
+                break;
+            }
+            a2--;
+         }
+         return ans;
+    }
+}
